@@ -1,0 +1,31 @@
+!!python/object/new:dynamic_reconfigure.encoding.Config
+dictitems:
+  forwardSpeed: 0.15
+  groups: !!python/object/new:dynamic_reconfigure.encoding.Config
+    dictitems:
+      forwardSpeed: 0.15
+      groups: !!python/object/new:dynamic_reconfigure.encoding.Config
+        state: []
+      hMax: 22
+      hMin: 5
+      id: 0
+      name: Default
+      parameters: !!python/object/new:dynamic_reconfigure.encoding.Config
+        state: []
+      parent: 0
+      sMax: 255
+      sMin: 141
+      state: true
+      turnP: 2.0
+      type: ''
+      vMax: 255
+      vMin: 122
+    state: []
+  hMax: 22
+  hMin: 5
+  sMax: 255
+  sMin: 141
+  turnP: 2.0
+  vMax: 255
+  vMin: 122
+state: []

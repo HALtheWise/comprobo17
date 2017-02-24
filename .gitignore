@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 # Created by https://www.gitignore.io/api/python,ros,sublimetext,pycharm,clion,linux
 
@@ -264,3 +265,6 @@ bh_unicode_properties.cache
 GitHub.sublime-settings
 
 # End of https://www.gitignore.io/api/python,ros,sublimetext,pycharm,clion,linux
+=======
+*.pyc
+>>>>>>> 9b65f02f6351c1cda3127d437996176924a113f6

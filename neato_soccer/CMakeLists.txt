@@ -1,18 +1,16 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(esm_utils)
+project(neato_soccer)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
-  dynamic_reconfigure
+  cv_bridge
   geometry_msgs
-  message_generation
-  message_runtime
-  roscpp
   rospy
   sensor_msgs
   std_msgs
+  dynamic_reconfigure
 )
 
 ## System dependencies are found with CMake's conventions
@@ -22,7 +20,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## Uncomment this if the package has a setup.py. This macro ensures
 ## modules and global scripts declared therein get installed
 ## See http://ros.org/doc/api/catkin/html/user_guide/setup_dot_py.html
-catkin_python_setup()
+# catkin_python_setup()
 
 ################################################
 ## Declare ROS messages, services and actions ##
@@ -90,10 +88,11 @@ catkin_python_setup()
 ##     and list every .cfg file to be processed
 
 ## Generate dynamic reconfigure parameters in the 'cfg' folder
-# generate_dynamic_reconfigure_options(
-#   cfg/DynReconf1.cfg
-#   cfg/DynReconf2.cfg
-# )
+generate_dynamic_reconfigure_options(
+  cfg/BallTracker.cfg
+)
+
+# add_dependencies(neato_soccer ${PROJECT_NAME}_gencfg)
 
 ###################################
 ## catkin specific configuration ##
@@ -106,8 +105,8 @@ catkin_python_setup()
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
 #  INCLUDE_DIRS include
-#  LIBRARIES esm_utils
-#  CATKIN_DEPENDS dynamic_reconfigure geometry_msgs message_generation message_runtime roscpp rospy sensor_msgs std_msgs
+#  LIBRARIES neato_soccer
+#  CATKIN_DEPENDS cv_bridge geometry_msgs rospy sensor_msgs std_msgs
 #  DEPENDS system_lib
 )
 
@@ -123,24 +122,24 @@ include_directories(
 )
 
 ## Declare a C++ library
-# add_library(esm_utils
-#   src/${PROJECT_NAME}/esm_utils.cpp
+# add_library(neato_soccer
+#   src/${PROJECT_NAME}/neato_soccer.cpp
 # )
 
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
 ## either from message generation or dynamic reconfigure
-# add_dependencies(esm_utils ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+# add_dependencies(neato_soccer ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Declare a C++ executable
-# add_executable(esm_utils_node src/esm_utils_node.cpp)
+# add_executable(neato_soccer_node src/neato_soccer_node.cpp)
 
 ## Add cmake target dependencies of the executable
 ## same as for the library above
-# add_dependencies(esm_utils_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+# add_dependencies(neato_soccer_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
-# target_link_libraries(esm_utils_node
+# target_link_libraries(neato_soccer_node
 #   ${catkin_LIBRARIES}
 # )
 
@@ -159,7 +158,7 @@ include_directories(
 # )
 
 ## Mark executables and/or libraries for installation
-# install(TARGETS esm_utils esm_utils_node
+# install(TARGETS neato_soccer neato_soccer_node
 #   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
 #   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
 #   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
@@ -184,7 +183,7 @@ include_directories(
 #############
 
 ## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_esm_utils.cpp)
+# catkin_add_gtest(${PROJECT_NAME}-test test/test_neato_soccer.cpp)
 # if(TARGET ${PROJECT_NAME}-test)
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()
